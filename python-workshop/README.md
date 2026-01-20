@@ -104,16 +104,6 @@ Good luck with these weirdos!
 </details>
 <br>
 
-### The Rust Rewrite
-
-You've finally realized that Python is slow and decided to rewrite the whole thing in Rust! See if Cursor can help you!
-
-<details>
-<summary>Need a hint?</summary><br>
-Maybe it's the good time to enable <b>Max mode</b>!
-</details>
-<br>
-
 ### The Forgotten TDD Course
 
 It seems the original developer completely missed the Test-Driven Development course, there are no tests at all! Use Cursor to add proper tests for this application so we can finally trust it.
