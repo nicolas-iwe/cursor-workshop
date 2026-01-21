@@ -25,6 +25,7 @@ const env = nunjucks.configure(path.join(__dirname, "templates"), {
 });
 
 env.addFilter("formatRarity", formatRarity);
+env.addGlobal("currentYear", new Date().getFullYear());
 
 app.use("/static", express.static(path.join(__dirname, "static")));
 

@@ -13,10 +13,10 @@
       </div>
     </header>
     <div class="search-panel">
-      <input type="search" placeholder="Type to filter (coming soon)" disabled />
-      <button class="pixel-button" type="button" disabled>Search</button>
+      <input type="search" id="book-search" placeholder="Type to filter books..." />
+      <button class="pixel-button" type="button" id="search-button">Search</button>
     </div>
-    <div class="book-grid">
+    <div class="book-grid" id="book-grid">
       {% for book in books %}
         <article
           class="book-card"
@@ -25,7 +25,7 @@
           <img src="/static/{{ book.icon }}" alt="Cursor glyph for {{ book.title }}" />
           <h3>{{ book.title }}</h3>
           <p class="book-meta">
-            {{ book.collection }} · {% if book.rarity %}{{ book.rarity }}{% else %}{{ formatRarity(book.rating) }}{% endif %}
+            {{ book.collection }} · {% if book.rating %}{{ book.rating }}{% else %}{{ formatRarity(book.rating) }}{% endif %}
           </p>
           <p class="book-blurb">{{ book.blurb }}</p>
         </article>

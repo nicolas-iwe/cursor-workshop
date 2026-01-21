@@ -346,8 +346,9 @@ code {
   letter-spacing: 0.08em;
 }
 
-.search-panel button {
-  cursor: not-allowed;
+.search-panel input:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .book-grid {
