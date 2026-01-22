@@ -7,7 +7,7 @@ import {
   getBooks,
   getHealthStatus,
   loadWorkshopGoalsHTML,
-  formatRarity,
+  formatRating,
 } from "./services.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,7 +24,11 @@ const env = nunjucks.configure(path.join(__dirname, "templates"), {
   express: app,
 });
 
-env.addFilter("formatRarity", formatRarity);
+// Enregistrer formatRating comme fonction globale et filtre
+env.addGlobal("formatRating", formatRating);
+env.addFilter("formatRating", function(rating: number) {
+  return formatRating(rating);
+});
 env.addGlobal("currentYear", new Date().getFullYear());
 
 app.use("/static", express.static(path.join(__dirname, "static")));

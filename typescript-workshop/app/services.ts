@@ -14,7 +14,7 @@ export function getHealthStatus(): string {
   return "OK";
 }
 
-export function formatRarity(rating: number): string {
+export function formatRating(rating: number): string {
   return `${rating.toFixed(1)}★`;
 }
 

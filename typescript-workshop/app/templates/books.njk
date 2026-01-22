@@ -25,7 +25,7 @@
           <img src="/static/{{ book.icon }}" alt="Cursor glyph for {{ book.title }}" />
           <h3>{{ book.title }}</h3>
           <p class="book-meta">
-            {{ book.collection }} · {% if book.rating %}{{ book.rating }}{% else %}{{ formatRarity(book.rating) }}{% endif %}
+            {{ book.collection }} · {{ formatRating(book.rating) }}
           </p>
           <p class="book-blurb">{{ book.blurb }}</p>
         </article>
