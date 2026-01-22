@@ -11,7 +11,8 @@ export function getBooks(): Book[] {
 }
 
 export function getHealthStatus(): string {
-  return "OK";
+  const currentSecond = new Date().getSeconds();
+  return currentSecond % 2 === 0 ? "GOOD" : "BAD";
 }
 
 export function formatRating(rating: number): string {
