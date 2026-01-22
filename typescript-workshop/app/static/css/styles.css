@@ -279,6 +279,15 @@ code {
   box-shadow: 2px 2px 0 0 #000000;
 }
 
+#search-button {
+  background: linear-gradient(180deg, #00704A, #008b5a);
+  text-shadow: 1px 1px 1px #00a86b;
+}
+
+#search-button:hover {
+  filter: brightness(1.05);
+}
+
 .cursor-hero-popup {
   position: fixed;
   inset: 0;
