@@ -7,18 +7,22 @@ function initCursorHeroPopup() {
   const hideOverlay = () => {
     heroOverlay.setAttribute("hidden", "");
   };
-  const goToBooks = () => {
-    window.location.href = "/books";
+  const showOverlay = () => {
+    heroOverlay.removeAttribute("hidden");
   };
-  heroOverlay.removeAttribute("hidden");
+  
   heroOverlay.addEventListener("click", (event) => {
     if (event.target === heroOverlay) {
       hideOverlay();
     }
   });
+  
   if (closeButton instanceof HTMLElement) {
-    closeButton.addEventListener("click", goToBooks);
+    closeButton.addEventListener("click", hideOverlay);
   }
+  
+  // Expose showOverlay globally for easter egg trigger
+  window.showCursorHero = showOverlay;
 }
 
 function initBookSearch() {
@@ -32,13 +36,28 @@ function initBookSearch() {
 
   const filterBooks = (searchTerm) => {
     const term = searchTerm.toLowerCase().trim();
+    
+    // Easter egg trigger
+    const easterEggTriggers = ["easter egg", "ee", "e4st3r 3gg", "e4st3r egg"];
+    if (easterEggTriggers.includes(term)) {
+      if (window.showCursorHero) {
+        window.showCursorHero();
+      }
+      // Hide all books when easter egg is triggered
+      const bookCards = bookGrid.querySelectorAll(".book-card");
+      bookCards.forEach((card) => {
+        card.style.display = "none";
+      });
+      return 0;
+    }
+    
     const bookCards = bookGrid.querySelectorAll(".book-card");
     let visibleCount = 0;
 
     bookCards.forEach((card) => {
-      const title = card.getAttribute("data-book-title") || "";
-      const collection = card.getAttribute("data-book-collection") || "";
-      const blurb = card.getAttribute("data-book-blurb") || "";
+      const title = (card.getAttribute("data-book-title") || "").toLowerCase();
+      const collection = (card.getAttribute("data-book-collection") || "").toLowerCase();
+      const blurb = (card.getAttribute("data-book-blurb") || "").toLowerCase();
 
       const matches =
         term === "" ||

@@ -42,13 +42,6 @@ app.get("/", (_req, res) => {
 app.get("/books", (_req, res) => {
   res.render("books.njk", {
     books: getBooks(),
-  });
-});
-
-app.get("/ee", (_req, res) => {
-  res.render("books.njk", {
-    books: getBooks(),
-    showCursorHero: true,
     cursorHeroImage: "img/cursor-hero.svg",
   });
 });

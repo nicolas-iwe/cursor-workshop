@@ -20,6 +20,9 @@
       {% for book in books %}
         <article
           class="book-card"
+          data-book-title="{{ book.title }}"
+          data-book-collection="{{ book.collection }}"
+          data-book-blurb="{{ book.blurb }}"
           style="border-color: {{ book.accent }}; box-shadow: 6px 6px 0 0 {{ book.accentDark }};"
         >
           <img src="/static/{{ book.icon }}" alt="Cursor glyph for {{ book.title }}" />
@@ -31,23 +34,21 @@
         </article>
       {% endfor %}
     </div>
-    {% if showCursorHero %}
-      <div class="cursor-hero-popup" data-cursor-hero hidden>
-        <div class="cursor-hero-popup__inner">
-          <h2 class="cursor-hero-title">YOU FOUND THE E4st3r 3gg !</h2>
-          <img
-            class="cursor-hero-image"
-            src="/static/{{ cursorHeroImage }}"
-            alt="Cursor Hero badge"
-          />
-          <p class="cursor-hero-message">
-            Well done, explorer!<br />Not many have your sharp eyes!
-          </p>
-          <button class="pixel-button cursor-hero-close" type="button" data-cursor-hero-close>
-            Continue quest
-          </button>
-        </div>
+    <div class="cursor-hero-popup" data-cursor-hero hidden>
+      <div class="cursor-hero-popup__inner">
+        <h2 class="cursor-hero-title">YOU FOUND THE E4st3r 3gg !</h2>
+        <img
+          class="cursor-hero-image"
+          src="/static/{{ cursorHeroImage }}"
+          alt="Cursor Hero badge"
+        />
+        <p class="cursor-hero-message">
+          Well done, explorer!<br />Not many have your sharp eyes!
+        </p>
+        <button class="pixel-button cursor-hero-close" type="button" data-cursor-hero-close>
+          Continue quest
+        </button>
       </div>
-    {% endif %}
+    </div>
   </section>
 {% endblock %}
